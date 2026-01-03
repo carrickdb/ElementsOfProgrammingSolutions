@@ -7,12 +7,22 @@ from test_framework.test_utils import enable_executor_hook
 
 MPG = 20
 
-
 # gallons[i] is the amount of gas in city i, and distances[i] is the
-# distance city i to the next city.
+# distance from city i to the next city.
 def find_ample_city(gallons: List[int], distances: List[int]) -> int:
-    # TODO - you fill in here.
-    return 0
+    smallest = float("inf")
+    smallestCity = 0
+    l = len(gallons)
+    currGall = 0
+    for i in range(l):
+        if currGall < smallest:
+            smallest = currGall
+            smallestCity = i
+        currGall += gallons[i]
+        currGall -= distances[i]//MPG
+    # return the index of the ample city
+    print(smallestCity)
+    return smallestCity
 
 
 @enable_executor_hook
