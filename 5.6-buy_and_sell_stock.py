@@ -11,7 +11,6 @@ def buy_and_sell_stock_once(prices: List[float]) -> float:
         minsofar = min(minsofar, p)
     return profit
 
-
 if __name__ == '__main__':
     exit(
         generic_test.generic_test_main('buy_and_sell_stock.py',
