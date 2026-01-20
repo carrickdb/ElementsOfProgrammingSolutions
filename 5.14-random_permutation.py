@@ -8,10 +8,14 @@ from test_framework.random_sequence_checker import (
     check_sequence_is_uniformly_random, run_func_with_retries)
 from test_framework.test_utils import enable_executor_hook
 
+from random import randint
 
 def compute_random_permutation(n: int) -> List[int]:
-    # TODO - you fill in here.
-    return []
+    ans = list(range(n))
+    for i in range(n):
+        r = randint(i,n-1)
+        ans[i],ans[r] = ans[r], ans[i]
+    return ans
 
 
 @enable_executor_hook
