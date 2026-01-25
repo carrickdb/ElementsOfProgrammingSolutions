@@ -2,8 +2,11 @@ from test_framework import generic_test
 
 
 def snake_string(s: str) -> str:
-    # TODO - you fill in here.
-    return ''
+    ans = []
+    ans.append(s[1::4])
+    ans.append(s[0::2])
+    ans.append(s[3::4])
+    return ''.join(ans)
 
 
 if __name__ == '__main__':
