@@ -35,15 +35,6 @@ def is_linked_list_a_palindrome(L: ListNode) -> bool:
         p2 = p2.next
     return True
 
-# l = [0]
-# L = ListNode(1)
-# curr = L
-# for num in l:
-#     curr.next = ListNode(num)
-#     curr = curr.next
-
-# print(is_linked_list_a_palindrome(L.next))
-
 
 if __name__ == '__main__':
     exit(
