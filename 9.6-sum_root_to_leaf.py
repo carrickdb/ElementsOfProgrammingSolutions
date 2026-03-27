@@ -16,8 +16,6 @@ def sum_root_to_leaf(tree: BinaryTreeNode) -> int:
 
     return rec(tree, 0)
 
-    
-
 
 # tree = BinaryTreeNode(1)
 # tree.left = BinaryTreeNode(0)
