@@ -3,30 +3,20 @@ from test_framework import generic_test
 
 
 def sum_root_to_leaf(tree: BinaryTreeNode) -> int:
-    currNum = 0
-    ans = 0
 
-    def rec(curr):
+    def rec(curr, partial_sum):
         if not curr:
-            return
-        nonlocal currNum
-        nonlocal ans
-        currNum <<= 1
-        currNum |= curr.data
-        # print(curr.data, currNum, ans)
+            return 0
+        next_sum = (partial_sum << 1) | curr.data
         if not curr.left and not curr.right:
-            # print("not curr.left and not curr.right")
-            ans += currNum
-            currNum >>= 1
-            return
-        # print(curr.data)
-        rec(curr.left)
-        rec(curr.right)
-        currNum >>= 1
-        # print(currNum)
+            return next_sum
+        rsum = rec(curr.right, next_sum)
+        lsum = rec(curr.left, next_sum)
+        return rsum+lsum
 
-    rec(tree)
-    return ans
+    return rec(tree, 0)
+
+    
 
 
 # tree = BinaryTreeNode(1)
