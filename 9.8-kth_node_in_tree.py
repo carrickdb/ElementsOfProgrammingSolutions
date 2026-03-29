@@ -28,7 +28,6 @@ def find_kth_node_binary_tree(tree: BinaryTreeNode,
             curr = curr.left
 
 
-
 @enable_executor_hook
 def find_kth_node_binary_tree_wrapper(executor, tree, k):
     def init_size(node):
