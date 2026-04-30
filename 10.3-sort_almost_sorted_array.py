@@ -14,7 +14,6 @@ def sort_approximately_sorted_array(sequence: Iterator[int],
         heapq.heappush(h, num)
     while h:
         ans.append(heapq.heappop(h))
-
     return ans
 
 
