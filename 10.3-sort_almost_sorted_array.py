@@ -2,11 +2,21 @@ from typing import Iterator, List
 
 from test_framework import generic_test
 
+import heapq
 
 def sort_approximately_sorted_array(sequence: Iterator[int],
                                     k: int) -> List[int]:
-    # TODO - you fill in here.
-    return []
+    h = []
+    ans = []
+    for num in sequence:
+        if len(h) >= k:
+            ans.append(heapq.heappop(h))
+        heapq.heappush(h, num)
+    while h:
+        ans.append(heapq.heappop(h))
+
+    return ans
+
 
 
 def sort_approximately_sorted_array_wrapper(sequence, k):
