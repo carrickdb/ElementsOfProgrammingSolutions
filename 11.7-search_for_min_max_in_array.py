@@ -8,8 +8,17 @@ MinMax = collections.namedtuple('MinMax', ('smallest', 'largest'))
 
 
 def find_min_max(A: List[int]) -> MinMax:
-    # TODO - you fill in here.
-    return MinMax(0, 0)
+    minsofar = A[0]
+    maxsofar = A[0]
+    for i in range(len(A)-1):
+        if A[i] > A[i+1]:
+            maxsofar = max(maxsofar, A[i])
+            minsofar = min(minsofar, A[i+1])
+        elif A[i+1] > A[i]:
+            maxsofar = max(maxsofar, A[i+1])
+            minsofar = min(minsofar, A[i])
+    return MinMax(minsofar, maxsofar)
+
 
 
 def res_printer(prop, value):
