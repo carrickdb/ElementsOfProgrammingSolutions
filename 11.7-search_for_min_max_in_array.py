@@ -19,8 +19,6 @@ def find_min_max(A: List[int]) -> MinMax:
             minsofar = min(minsofar, A[i])
     return MinMax(minsofar, maxsofar)
 
-
-
 def res_printer(prop, value):
     def fmt(x):
         return 'min: {}, max: {}'.format(x[0], x[1]) if x else None
