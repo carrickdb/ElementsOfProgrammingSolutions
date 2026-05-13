@@ -4,8 +4,17 @@ from test_framework import generic_test
 
 
 def find_nearest_repetition(paragraph: List[str]) -> int:
-    # TODO - you fill in here.
-    return 0
+    h = {}
+    ans = float("inf")
+    for i,word in enumerate(paragraph):
+        if word in h:
+            ans = min(ans, i-h[word])
+        h[word] = i
+    if ans == float("inf"):
+        return -1
+    return ans
+
+
 
 
 if __name__ == '__main__':
