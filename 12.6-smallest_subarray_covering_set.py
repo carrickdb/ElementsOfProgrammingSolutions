@@ -8,11 +8,26 @@ from test_framework.test_utils import enable_executor_hook
 
 Subarray = collections.namedtuple('Subarray', ('start', 'end'))
 
-
+from collections import Counter
 def find_smallest_subarray_covering_set(paragraph: List[str],
                                         keywords: Set[str]) -> Subarray:
-    # TODO - you fill in here.
-    return Subarray(0, 0)
+    left, right = -1,-1
+    counts = Counter()
+    p = 0
+    for i, word in enumerate(paragraph):
+        if word in keywords:
+            counts[word] += 1
+        while len(counts) == len(keywords):
+            if right == -1 or i-p < right-left:
+                left = p
+                right = i
+            left_word = paragraph[p]
+            if left_word in keywords:
+                counts[left_word] -= 1
+                if counts[left_word] == 0:
+                    del counts[left_word]
+            p += 1
+    return Subarray(left, right)
 
 
 @enable_executor_hook
